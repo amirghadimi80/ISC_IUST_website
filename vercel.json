@@ -8,6 +8,9 @@
     }
   ],
   "routes": [
-    { "src": "/(.*)", "dest": "api/ISC_IUST/wsgi.py" }
+    {
+      "src": "/(.*)",
+      "dest": "api/ISC_IUST/wsgi.py"
+    }
   ]
 }
