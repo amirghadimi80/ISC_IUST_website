@@ -1,0 +1,244 @@
+================================================================================
+ISC IUST WEBSITE - PROJECT STRUCTURE
+================================================================================
+Project: Iran University of Science and Technology - Cryptography Student Chapter Website
+Framework: Django 4.2
+Language: Python 3.11
+Description: Official website for the IUST Cryptography Student Scientific Association
+================================================================================
+
+PROJECT ROOT: ISC_IUST/
+│
+├── manage.py                          # Django management script
+├── db.sqlite3                         # SQLite database file
+│
+├── ISC_IUST/                          # Main project configuration directory
+│   ├── __init__.py                    # Python package initializer
+│   ├── settings.py                    # Django project settings
+│   ├── urls.py                        # Main URL configuration
+│   ├── wsgi.py                        # WSGI configuration for deployment
+│   ├── asgi.py                        # ASGI configuration for async support
+│   └── __pycache__/                   # Python bytecode cache
+│
+├── core/                              # Main application directory
+│   ├── __init__.py                    # Python package initializer
+│   ├── admin.py                       # Django admin configuration
+│   ├── apps.py                        # Application configuration
+│   ├── models.py                      # Database models
+│   ├── views.py                       # View functions
+│   ├── forms.py                       # Form definitions
+│   ├── tests.py                       # Unit tests
+│   │
+│   ├── migrations/                    # Database migration files
+│   │   ├── __init__.py
+│   │   ├── 0001_initial.py           # Initial migration (EventRegistration, Membership)
+│   │   ├── 0002_news.py              # News model migration
+│   │   ├── 0003_event.py             # Event model migration
+│   │   ├── 0004_alter_event_options_remove_event_capacity_and_more.py
+│   │   ├── 0005_galleryimage.py      # Gallery image model migration
+│   │   ├── 0006_contactmessage.py    # Contact message model migration
+│   │   └── __pycache__/
+│   │
+│   ├── static/                        # Static files (CSS, JS, Images)
+│   │   └── core/
+│   │       ├── css/
+│   │       │   └── main.css          # Main stylesheet
+│   │       ├── js/
+│   │       │   └── main.js           # Main JavaScript file
+│   │       └── images/
+│   │           ├── logo.png          # Association logo
+│   │           └── favicon.png       # Website favicon
+│   │
+│   ├── templates/                     # HTML templates
+│   │   └── core/
+│   │       ├── main.html             # Homepage template
+│   │       ├── contact.html          # Contact page template
+│   │       ├── previous_members.html # Previous members page
+│   │       └── honorary_members.html # Honorary members page
+│   │
+│   └── __pycache__/                   # Python bytecode cache
+│
+├── media/                             # User-uploaded media files
+│   └── images/
+│       └── gallery/                   # Gallery images directory
+│
+└── staticfiles/                       # Collected static files (for production)
+    ├── admin/                         # Django admin static files
+    │   ├── css/
+    │   ├── js/
+    │   └── img/
+    └── core/                          # Core app static files
+        ├── css/
+        ├── js/
+        └── images/
+
+================================================================================
+DATABASE MODELS
+================================================================================
+
+1. EventRegistration
+   - full_name: CharField (max_length=200)
+   - email: EmailField
+   - student_id: CharField (max_length=50, optional)
+   - event: ForeignKey to Event
+   - created_at: DateTimeField (auto)
+   Purpose: Store event registration data
+
+2. Membership
+   - name: CharField (max_length=200)
+   - email: EmailField
+   - phone: CharField (max_length=20)
+   - role: CharField (choices: student, researcher, faculty)
+   - interest: TextField (optional)
+   - created_at: DateTimeField (auto)
+   Purpose: Store membership applications
+
+3. News
+   - title: CharField (max_length=200)
+   - content: TextField
+   - image: ImageField (optional)
+   - is_published: BooleanField
+   - created_at: DateTimeField (auto)
+   - updated_at: DateTimeField (auto)
+   Purpose: Manage news articles
+
+4. Event
+   - title: CharField (max_length=200)
+   - description: TextField
+   - event_type: CharField (choices: workshop, course, seminar, ctf, conference, other)
+   - event_date: DateTimeField (optional)
+   - location: CharField (max_length=200, optional)
+   - image: ImageField (optional)
+   - is_published: BooleanField
+   - registration_open: BooleanField
+   - created_at: DateTimeField (auto)
+   - updated_at: DateTimeField (auto)
+   Purpose: Manage events and courses
+
+5. GalleryImage
+   - title: CharField (max_length=100)
+   - caption: CharField (max_length=200, optional)
+   - image: ImageField
+   - is_active: BooleanField
+   - order: PositiveIntegerField
+   - created_at: DateTimeField (auto)
+   Purpose: Manage gallery images
+
+6. ContactMessage
+   - full_name: CharField (max_length=200)
+   - email: EmailField
+   - phone: CharField (max_length=20, optional)
+   - subject: CharField (max_length=200)
+   - message: TextField
+   - is_read: BooleanField
+   - created_at: DateTimeField (auto)
+   Purpose: Store contact form submissions
+
+================================================================================
+URL ROUTES
+================================================================================
+
+/                       -> home view (main.html)
+/contact/               -> contact view (contact.html)
+/previous-members/      -> previous_members view (previous_members.html)
+/honorary-members/      -> honorary_members view (honorary_members.html)
+/admin/                 -> Django admin panel
+
+================================================================================
+FEATURES
+================================================================================
+
+Homepage (main.html):
+- Hero section with association introduction
+- About section with mission, vision, and activities
+- Statistics display (members, events, projects, years)
+- Team section (current board members)
+- Events and news section
+- Projects showcase
+- Gallery slider
+- Membership registration form
+- Event registration form
+- Contact section with map
+- Social media links
+- Footer with useful links
+
+Contact Page (contact.html):
+- Contact information (email, phone, address)
+- Social media links (Telegram, LinkedIn, Aparat, Instagram)
+- Google Maps integration (location: 35.742513, 51.502253)
+- Contact form (name, email, phone, subject, message)
+- Responsive design
+
+Previous Members Page:
+- Display previous board members
+
+Honorary Members Page:
+- Display honorary members
+
+Admin Panel:
+- Manage all models (CRUD operations)
+- Filter and search functionality
+- Custom admin configurations
+
+================================================================================
+TECHNOLOGIES USED
+================================================================================
+
+Backend:
+- Django 4.2
+- Python 3.11
+- SQLite database
+
+Frontend:
+- HTML5
+- CSS3 (Custom styling with CSS variables)
+- JavaScript (Vanilla JS)
+- Font Awesome 4.7.0
+- Google Fonts (Vazirmatn, Inter)
+
+Design:
+- Responsive design (mobile-first approach)
+- RTL (Right-to-Left) support for Persian language
+- Dark theme with green accent colors
+- Binary rain background animation
+- Smooth scrolling and transitions
+
+================================================================================
+DEPLOYMENT NOTES
+================================================================================
+
+Static Files:
+- Run: python manage.py collectstatic
+- Static files collected to: staticfiles/
+
+Media Files:
+- User uploads stored in: media/
+- Configure MEDIA_ROOT and MEDIA_URL in settings.py
+
+Database:
+- Development: SQLite (db.sqlite3)
+- Production: Consider PostgreSQL or MySQL
+
+Environment:
+- DEBUG = True (development)
+- DEBUG = False (production)
+- Configure ALLOWED_HOSTS for production
+
+================================================================================
+CONTACT INFORMATION
+================================================================================
+
+Organization: Iran University of Science and Technology - Cryptography Association
+Email: crypto@iust.ac.ir
+Phone: 021-77240000
+Address: Tehran, Hengam Street, Iran University of Science and Technology
+Website: [To be deployed]
+
+Social Media:
+- Telegram: https://t.me/Isc_iust
+- LinkedIn: https://www.linkedin.com/company/isc-crypto-iust/
+- Aparat: https://www.aparat.com/cryptology
+
+================================================================================
+END OF PROJECT STRUCTURE
+================================================================================
