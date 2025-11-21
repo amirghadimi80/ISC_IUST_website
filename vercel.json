@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/ISC_IUST/wsgi.py",
+      "use": "@vercel/python",
+      "config": { "runtime": "python3.11" }
+    }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "api/ISC_IUST/wsgi.py" }
+  ]
+}
