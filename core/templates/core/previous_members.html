@@ -1,0 +1,120 @@
+{% load static %}
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>اعضای دوره‌های قبلی انجمن رمز | انجمن رمز دانشگاه علم و صنعت</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="{% static 'core/css/main.css' %}">
+  <link rel="icon" href="{% static 'core/images/favicon.png' %}" type="image/png">
+</head>
+<body>
+  {% if messages %}
+    <div style="position: fixed; top: 20px; right: 20px; z-index: 10001;">
+      {% for message in messages %}
+        <div style="background: var(--primary-green); color: var(--dark-bg); padding: 1.5rem 2rem; border-radius: 12px; margin-bottom: 1rem; font-weight: 600; box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3); animation: slideIn 0.3s ease;">
+          {{ message }}
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+  
+  <!-- Binary Rain Background -->
+  <div class="binary-rain" id="binaryRain"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="logo">
+        <img src="{% static 'core/images/logo.png' %}" alt="لوگوی انجمن رمز">
+        <span>انجمن رمز</span>
+      </div>
+      <button class="menu-toggle" id="menuToggle">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="{% url 'home' %}#home">صفحه اصلی</a></li>
+        <li><a href="{% url 'home' %}#about">درباره ما</a></li>
+        <li><a href="{% url 'home' %}#projects">پروژه‌ها</a></li>
+        <li><a href="{% url 'home' %}#team">تیم ما</a></li>
+        <li><a href="{% url 'home' %}#events">رویدادها</a></li>
+        <li><a href="{% url 'home' %}#gallery">گالری</a></li>
+        <li><a href="{% url 'home' %}#contact" class="btn btn-nav">تماس با ما</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Previous Members Section -->
+  <section class="section" style="padding-top: 8rem;">
+    <div class="container">
+      <h2 class="section-title">اعضای دوره‌های قبلی انجمن رمز</h2>
+      <p class="section-subtitle">با اعضای شورای مرکزی دوره‌های قبلی انجمن رمز دانشگاه علم و صنعت آشنا شوید</p>
+      
+      <div style="text-align: center; margin-top: 3rem; margin-bottom: 3rem;">
+        <a href="{% url 'home' %}" class="btn btn-primary">بازگشت به صفحه اصلی</a>
+      </div>
+      
+      <!-- Placeholder for previous members -->
+      <div class="team-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+        <div class="team-card">
+          <div class="team-avatar">
+            <img src="https://via.placeholder.com/200x200/1a1a2e/00ff88?text=عضو" alt="عضو دوره قبلی">
+          </div>
+          <h3>در حال آماده‌سازی</h3>
+          <div class="team-role">اطلاعات به زودی اضافه می‌شود</div>
+          <p class="team-bio">اطلاعات اعضای دوره‌های قبلی به زودی در این بخش قرار خواهد گرفت.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>تماس با ما</h3>
+          <p>📧 crypto@iust.ac.ir</p>
+          <p>📞 021-77240000</p>
+          <p>📍 تهران، خیابان هنگام، دانشگاه علم و صنعت ایران</p>
+        </div>
+        <div class="footer-section">
+          <h3>لینک‌های مفید</h3>
+          <a href="{% url 'home' %}#about">درباره ما</a>
+          <a href="{% url 'home' %}#events">رویدادها</a>
+          <a href="{% url 'home' %}#projects">پروژه‌ها</a>
+          <a href="{% url 'home' %}#membership">عضویت</a>
+        </div>
+        <div class="footer-section">
+          <h3>شبکه‌های اجتماعی</h3>
+          <a href="#" target="_blank" rel="noopener noreferrer">تلگرام</a>
+          <a href="#" target="_blank" rel="noopener noreferrer">اینستاگرام</a>
+          <a href="#" target="_blank" rel="noopener noreferrer">لینکدین</a>
+          <a href="#" target="_blank" rel="noopener noreferrer">گیت‌هاب</a>
+        </div>
+        <div class="footer-section">
+          <h3>منابع</h3>
+          <a href="#" target="_blank" rel="noopener noreferrer">مقالات علمی</a>
+          <a href="#" target="_blank" rel="noopener noreferrer">ابزارهای رمزنگاری</a>
+          <a href="#" target="_blank" rel="noopener noreferrer">دوره‌های آموزشی</a>
+          <a href="#" target="_blank" rel="noopener noreferrer">استانداردها</a>
+        </div>
+      </div>
+      <div class="university-badge">
+        <a href="https://www.iust.ac.ir/" target="_blank" rel="noopener noreferrer">
+          دانشگاه علم و صنعت ایران
+        </a>
+      </div>
+      <div class="footer-bottom">
+        <p>© 1403 انجمن رمز دانشگاه علم و صنعت. تمامی حقوق محفوظ است.</p>
+        <p style="margin-top: 10px;">سیاست حفظ حریم خصوصی | شرایط استفاده</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="{% static 'core/js/main.js' %}"></script>
+</body>
+</html>
+

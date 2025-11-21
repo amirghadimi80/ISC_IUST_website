@@ -1,0 +1,447 @@
+{% load static %}
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تماس با ما | انجمن رمز دانشگاه علم و صنعت</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="{% static 'core/css/main.css' %}">
+  <link rel="icon" href="{% static 'core/images/favicon.png' %}" type="image/png">
+  <style>
+    .contact-hero {
+      background: linear-gradient(135deg, rgba(0, 255, 136, 0.1) 0%, rgba(0, 212, 255, 0.1) 100%);
+      padding: 8rem 0 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .contact-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2300ff88' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      opacity: 0.3;
+    }
+    
+    .contact-hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: var(--primary-green);
+      position: relative;
+      z-index: 1;
+    }
+    
+    .contact-hero p {
+      font-size: 1.2rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .contact-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+    
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    
+    .info-card {
+      background: rgba(26, 26, 46, 0.6);
+      border: 1px solid rgba(0, 255, 136, 0.2);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: all 0.3s ease;
+    }
+    
+    .info-card:hover {
+      border-color: var(--primary-green);
+      box-shadow: 0 10px 30px rgba(0, 255, 136, 0.2);
+      transform: translateY(-5px);
+    }
+    
+    .info-card h3 {
+      color: var(--primary-green);
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+    
+    .info-item i {
+      color: var(--primary-green);
+      font-size: 1.2rem;
+      margin-top: 0.2rem;
+      min-width: 20px;
+    }
+    
+    .social-links-contact {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    
+    .social-link {
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(0, 255, 136, 0.2);
+    }
+    
+    .social-link:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 255, 136, 0.3);
+    }
+    
+    .social-link.telegram {
+      background: linear-gradient(135deg, #0088cc 0%, #00a0e9 100%);
+      border-color: #0088cc;
+    }
+    
+    .social-link.linkedin {
+      background: linear-gradient(135deg, #0077b5 0%, #00a0dc 100%);
+      border-color: #0077b5;
+    }
+    
+    .social-link.aparat {
+      background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+      border-color: #e74c3c;
+    }
+    
+    .social-link.instagram {
+      background: linear-gradient(135deg, #833ab4 0%, #fd1d1d 50%, #fcb045 100%);
+      border-color: #833ab4;
+    }
+    
+    .map-container {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(0, 255, 136, 0.2);
+      height: 300px;
+      margin-top: 1rem;
+    }
+    
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    
+    .contact-form-section {
+      background: rgba(26, 26, 46, 0.6);
+      border: 1px solid rgba(0, 255, 136, 0.2);
+      border-radius: 16px;
+      padding: 2.5rem;
+    }
+    
+    .contact-form-section h2 {
+      color: var(--primary-green);
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-group label {
+      display: block;
+      color: var(--text-secondary);
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+    
+    .form-control {
+      width: 100%;
+      padding: 1rem;
+      background: rgba(5, 5, 8, 0.8);
+      border: 1px solid rgba(0, 255, 136, 0.2);
+      border-radius: 8px;
+      color: var(--text-primary);
+      font-family: 'Vazirmatn', sans-serif;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+    
+    .form-control:focus {
+      outline: none;
+      border-color: var(--primary-green);
+      box-shadow: 0 0 0 3px rgba(0, 255, 136, 0.1);
+    }
+    
+    textarea.form-control {
+      resize: vertical;
+      min-height: 150px;
+    }
+    
+    @media (max-width: 768px) {
+      .contact-hero h1 {
+        font-size: 2rem;
+      }
+      
+      .contact-container {
+        grid-template-columns: 1fr;
+        padding: 2rem 1rem;
+      }
+      
+      .contact-hero {
+        padding: 6rem 1rem 3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  {% if messages %}
+    <div style="position: fixed; top: 20px; right: 20px; z-index: 10001;">
+      {% for message in messages %}
+        <div style="background: var(--primary-green); color: var(--dark-bg); padding: 1.5rem 2rem; border-radius: 12px; margin-bottom: 1rem; font-weight: 600; box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3); animation: slideIn 0.3s ease;">
+          {{ message }}
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  <!-- Binary Rain Background -->
+  <div class="binary-rain" id="binaryRain"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="logo">
+        <img src="{% static 'core/images/logo.png' %}" alt="لوگوی انجمن رمز">
+        <span>انجمن رمز</span>
+      </div>
+      <button class="menu-toggle" id="menuToggle">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="{% url 'home' %}#home">صفحه اصلی</a></li>
+        <li><a href="{% url 'home' %}#about">درباره ما</a></li>
+        <li><a href="{% url 'home' %}#projects">پروژه‌ها</a></li>
+        <li><a href="{% url 'home' %}#team">تیم ما</a></li>
+        <li><a href="{% url 'home' %}#events">رویدادها</a></li>
+        <li><a href="{% url 'home' %}#gallery">گالری</a></li>
+        <li><a href="{% url 'contact' %}" class="btn btn-nav">تماس با ما</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="contact-hero">
+    <h1>تماس با ما</h1>
+    <p>برای ارتباط با انجمن رمز دانشگاه علم و صنعت، از راه‌های زیر می‌توانید با ما در تماس باشید</p>
+  </section>
+
+  <!-- Contact Content -->
+  <div class="contact-container">
+    <!-- Contact Information -->
+    <div class="contact-info">
+      <!-- Contact Details -->
+      <div class="info-card">
+        <h3><i class="fa fa-info-circle"></i> اطلاعات تماس</h3>
+        <div class="info-item">
+          <i class="fa fa-envelope"></i>
+          <div>
+            <strong>ایمیل:</strong><br>
+            crypto@iust.ac.ir
+          </div>
+        </div>
+        <div class="info-item">
+          <i class="fa fa-phone"></i>
+          <div>
+            <strong>تلفن:</strong><br>
+            021-77240000
+          </div>
+        </div>
+        <div class="info-item">
+          <i class="fa fa-map-marker"></i>
+          <div>
+            <strong>آدرس:</strong><br>
+            تهران، خیابان هنگام، دانشگاه علم و صنعت ایران
+          </div>
+        </div>
+      </div>
+
+      <!-- Social Media -->
+      <div class="info-card">
+        <h3><i class="fa fa-share-alt"></i> شبکه‌های اجتماعی</h3>
+        <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+          در شبکه‌های اجتماعی ما را دنبال کنید تا از آخرین اخبار و رویدادها مطلع شوید
+        </p>
+        <div class="social-links-contact">
+          <a href="https://t.me/Isc_iust" target="_blank" rel="noopener noreferrer" class="social-link telegram" aria-label="تلگرام">
+            <i class="fa fa-telegram"></i>
+          </a>
+          <a href="https://www.linkedin.com/company/isc-crypto-iust/" target="_blank" rel="noopener noreferrer" class="social-link linkedin" aria-label="لینکدین">
+            <i class="fa fa-linkedin"></i>
+          </a>
+          <a href="https://www.aparat.com/cryptology" target="_blank" rel="noopener noreferrer" class="social-link aparat" aria-label="آپارات">
+            <i class="fa fa-play-circle"></i>
+          </a>
+          <a href="#" target="_blank" rel="noopener noreferrer" class="social-link instagram" aria-label="اینستاگرام">
+            <i class="fa fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Map -->
+      <div class="info-card">
+        <h3><i class="fa fa-map"></i> موقعیت مکانی</h3>
+        <div class="map-container">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3237.8267896847433!2d51.34893631525889!3d35.77463098017463!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f8dfc6f8c5e5e5f%3A0x8b5e5e5e5e5e5e5e!2z2K_Yp9mG2LTar9in2Ycg2LnZhNmFINmIINi12YbYudiqINin2YrYsdin2YY!5e0!3m2!1sfa!2sir!4v1732204800000!5m2!1sfa!2sir" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+        <a href="https://maps.app.goo.gl/qsDyiZCgx9TnGdwH8" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="width: 100%; margin-top: 1rem; text-align: center;">
+          <i class="fa fa-map-marker"></i> مشاهده در Google Maps
+        </a>
+      </div>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="contact-form-section">
+      <h2>ارسال پیام</h2>
+      <p style="text-align: center; color: var(--text-secondary); margin-bottom: 2rem;">
+        سوال، پیشنهاد یا انتقاد خود را با ما در میان بگذارید
+      </p>
+      <form method="post">
+        {% csrf_token %}
+        
+        <div class="form-group">
+          <label for="{{ form.full_name.id_for_label }}">{{ form.full_name.label }}</label>
+          {{ form.full_name }}
+          {% if form.full_name.errors %}
+            <div style="color: #ff4444; font-size: 0.9rem; margin-top: 0.5rem;">
+              {{ form.full_name.errors }}
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="form-group">
+          <label for="{{ form.email.id_for_label }}">{{ form.email.label }}</label>
+          {{ form.email }}
+          {% if form.email.errors %}
+            <div style="color: #ff4444; font-size: 0.9rem; margin-top: 0.5rem;">
+              {{ form.email.errors }}
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="form-group">
+          <label for="{{ form.phone.id_for_label }}">{{ form.phone.label }}</label>
+          {{ form.phone }}
+          {% if form.phone.errors %}
+            <div style="color: #ff4444; font-size: 0.9rem; margin-top: 0.5rem;">
+              {{ form.phone.errors }}
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="form-group">
+          <label for="{{ form.subject.id_for_label }}">{{ form.subject.label }}</label>
+          {{ form.subject }}
+          {% if form.subject.errors %}
+            <div style="color: #ff4444; font-size: 0.9rem; margin-top: 0.5rem;">
+              {{ form.subject.errors }}
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="form-group">
+          <label for="{{ form.message.id_for_label }}">{{ form.message.label }}</label>
+          {{ form.message }}
+          {% if form.message.errors %}
+            <div style="color: #ff4444; font-size: 0.9rem; margin-top: 0.5rem;">
+              {{ form.message.errors }}
+            </div>
+          {% endif %}
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1.2rem; font-size: 1.1rem;">
+          <i class="fa fa-paper-plane"></i> ارسال پیام
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>تماس با ما</h3>
+          <p>📧 crypto@iust.ac.ir</p>
+          <p>📞 021-77240000</p>
+          <p>📍 تهران، خیابان هنگام، دانشگاه علم و صنعت ایران</p>
+        </div>
+        <div class="footer-section">
+          <h3>لینک‌های مفید</h3>
+          <a href="{% url 'home' %}#about">درباره ما</a>
+          <a href="{% url 'home' %}#events">رویدادها</a>
+          <a href="{% url 'home' %}#projects">پروژه‌ها</a>
+          <a href="{% url 'home' %}#membership">عضویت</a>
+        </div>
+        <div class="footer-section">
+          <h3>شبکه‌های اجتماعی</h3>
+          <a href="https://t.me/Isc_iust" target="_blank" rel="noopener noreferrer">تلگرام</a>
+          <a href="https://www.linkedin.com/company/isc-crypto-iust/" target="_blank" rel="noopener noreferrer">لینکدین</a>
+          <a href="https://www.aparat.com/cryptology" target="_blank" rel="noopener noreferrer">آپارات</a>
+          <a href="#" target="_blank" rel="noopener noreferrer">اینستاگرام</a>
+        </div>
+        <div class="footer-section">
+          <h3>منابع</h3>
+          <a href="#" target="_blank" rel="noopener noreferrer">مقالات علمی</a>
+          <a href="#" target="_blank" rel="noopener noreferrer">ابزارهای رمزنگاری</a>
+          <a href="#" target="_blank" rel="noopener noreferrer">دوره‌های آموزشی</a>
+          <a href="#" target="_blank" rel="noopener noreferrer">استانداردها</a>
+        </div>
+      </div>
+      <div class="university-badge">
+        <a href="https://www.iust.ac.ir/" target="_blank" rel="noopener noreferrer">
+          دانشگاه علم و صنعت ایران
+        </a>
+      </div>
+      <div class="footer-bottom">
+        <p>© 1403 انجمن رمز دانشگاه علم و صنعت. تمامی حقوق محفوظ است.</p>
+        <p style="margin-top: 10px;">سیاست حفظ حریم خصوصی | شرایط استفاده</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="{% static 'core/js/main.js' %}"></script>
+</body>
+</html>

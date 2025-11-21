@@ -1,0 +1,95 @@
+{% load static %}
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>اعضای افتخاری | انجمن رمز دانشگاه علم و صنعت</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="{% static 'core/css/main.css' %}">
+  <link rel="icon" href="{% static 'core/images/favicon.png' %}" type="image/png">
+</head>
+<body>
+  <div class="binary-rain" id="binaryRain"></div>
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo">
+        <img src="{% static 'core/images/logo.png' %}" alt="لوگوی انجمن رمز">
+        <span>انجمن رمز</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="{% url 'home' %}">بازگشت به صفحه اصلی</a></li>
+        <li><a href="{% url 'previous_members' %}">اعضای دوره‌های قبلی</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="hero" style="padding-top: 9rem; padding-bottom: 5rem;">
+    <div class="hero-content">
+      <div class="hero-badge">اعضای افتخاری</div>
+      <h1>در کنار بزرگان امنیت اطلاعات</h1>
+      <p>اعضای افتخاری انجمن رمز، پیشکسوتان و چهره‌‌های برجسته‌ای هستند که با اشتراک تجربه و حمایت از نسل جدید پژوهشگران، به رشد و پایداری اکوسیستم امنیت اطلاعات کمک می‌کنند.</p>
+      <div class="hero-buttons">
+        <a href="{% url 'home' %}" class="btn btn-primary">بازگشت به خانه</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">چرا اعضای افتخاری؟</h2>
+      <p class="section-subtitle">این رده ویژه برای تقدیر از افرادی است که با انتقال دانش، راهبری پروژه یا حمایت آموزشی، به تعالی جامعه علمی انجمن رمز یاری رسانده‌اند.</p>
+      <div class="about-content">
+        <div class="about-card">
+          <h3>دکتر سمیه مطهری</h3>
+          <p>پژوهشگر برجسته رمزنگاری، منتقد استانداردهای محافظت از امنیت نرم‌افزار و مربی کارگاه‌های بین‌المللی CTF.</p>
+        </div>
+        <div class="about-card">
+          <h3>مهندس کیارش ملکی</h3>
+          <p>مدیر سابق پدافند غیرعامل، بنیان‌گذار تیمی از تحلیلگران پیشرفته و حامی پروژه‌های دانشگاهی طراحی شده توسط اعضای انجمن.</p>
+        </div>
+        <div class="about-card">
+          <h3>دکتر آرمان نیازی</h3>
+          <p>مدرس قدیمی هوش مصنوعی در امنیت، راهنمای طرح‌های تحقیقاتی دفاعی و داور مسابقات ملی با محوریت امنیت اطلاعات و پردازش داده.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background: rgba(5, 5, 8, 0.6);">
+    <div class="container">
+      <h2 class="section-title">حضور فعال، حمایت پایدار</h2>
+      <p class="section-subtitle">اعضای افتخاری تجربه‌های ارزشمندی را برای اعضای فعلی به اشتراک می‌گذارند و در جلسات مشاوره، رویدادهای ویژه و طرح‌های فناورانه حضور دارند.</p>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">۱۸</div>
+          <div class="stat-label">عضو افتخاری در طول تاریخ</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">۴۰+</div>
+          <div class="stat-label">جلسه مشاوره تخصصی برگزار شده</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">۱۶</div>
+          <div class="stat-label">پروژه منتورشیپ پیاده‌سازی شده</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="section" style="padding-bottom: 3rem;">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>از همراهی اعضای افتخاری سپاسگزاریم که چراغ راه ما را روشن نگه می‌دارند.</p>
+        <p>© 1403 انجمن رمز دانشگاه علم و صنعت. تمامی حقوق محفوظ است.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="{% static 'core/js/main.js' %}"></script>
+</body>
+</html>

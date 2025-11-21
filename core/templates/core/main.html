@@ -1,0 +1,470 @@
+﻿{% load static %}
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>انجمن رمز دانشگاه علم و صنعت | امنیت سایبری و رمزنگاری</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="{% static 'core/css/main.css' %}">
+  <link rel="icon" href="{% static 'core/images/favicon.png' %}" type="image/png">
+  <script src="/_sdk/element_sdk.js"></script>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+</head>
+<body>
+  {% if messages %}
+    <div style="position: fixed; top: 20px; right: 20px; z-index: 10001;">
+      {% for message in messages %}
+        <div style="background: var(--primary-green); color: var(--dark-bg); padding: 1.5rem 2rem; border-radius: 12px; margin-bottom: 1rem; font-weight: 600; box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3); animation: slideIn 0.3s ease;">
+          {{ message }}
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+  <!-- Binary Rain Background -->
+  <div class="binary-rain" id="binaryRain"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="logo">
+        <img src="{% static 'core/images/logo.png' %}" alt="لوگوی انجمن رمز">
+        <span>انجمن رمز</span>
+      </div>
+      <button class="menu-toggle" id="menuToggle">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">صفحه اصلی</a></li>
+        <li><a href="#about">درباره ما</a></li>
+        <li><a href="#projects">پروژه‌ها</a></li>
+        <li><a href="#team">تیم ما</a></li>
+        <li><a href="#events">رویدادها</a></li>
+        <li><a href="#gallery">گالری</a></li>
+        <li><a href="{% url 'contact' %}" class="btn btn-nav">تماس با ما</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <div class="hero-meta">
+        <div class="hero-badge">🔒 امنیت سایبری | رمزنگاری | هوش مصنوعی</div>
+      </div>
+      <h1>انجمن رمز دانشگاه علم و صنعت ایران</h1>
+      <p>پیشرو در توسعه دانش امنیت سایبری، رمزنگاری و هوش مصنوعی. ما به دنبال ایجاد فضایی برای یادگیری، تحقیق و نوآوری در حوزه‌های امنیت اطلاعات هستیم.</p>
+      <div class="hero-buttons">
+        <a href="#about" class="btn btn-primary">درباره ما</a>
+        <a href="#membership" class="btn btn-secondary">عضویت در انجمن</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Media Section -->
+  <section class="section social-section">
+    <div class="container">
+      <h2 class="section-title">سوشال مدیای انجمن رمز دانشگاه علم و صنعت</h2>
+      <p class="section-subtitle">در شبکه‌های اجتماعی همراه ما باشید تا از آخرین رویدادها، کارگاه‌ها و اخبار انجمن رمز مطلع شوید.</p>
+      <div class="social-links">
+        <a class="social-card social-telegram" href="https://t.me/Isc_iust" target="_blank" rel="noopener noreferrer" aria-label="کانال تلگرام انجمن رمز">
+          <i class="fa fa-telegram"></i>
+          <span>تلگرام</span>
+        </a>
+        <a class="social-card social-linkedin" href="https://www.linkedin.com/company/isc-crypto-iust/" target="_blank" rel="noopener noreferrer" aria-label="صفحه لینکدین انجمن رمز">
+          <i class="fa fa-linkedin"></i>
+          <span>لینکدین</span>
+        </a>
+        <a class="social-card social-aparat" href="https://www.aparat.com/cryptology" target="_blank" rel="noopener noreferrer" aria-label="کانال آپارات انجمن رمز">
+          <i class="fa fa-play-circle"></i>
+          <span>آپارات</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section">
+    <div class="container">
+      <h2 class="section-title">درباره انجمن</h2>
+      <p class="section-subtitle">انجمن علمی دانشجویی رمز دانشگاه علم و صنعت ایران، با هدف گسترش دانش و مهارت‌های مرتبط با امنیت سایبری، رمزنگاری و هوش مصنوعی فعالیت می‌کند.</p>
+      
+      <div class="about-content">
+        <div class="about-card">
+          <h3>🎯 ماموریت ما</h3>
+          <p>توسعه دانش رمزنگاری و امنیت سایبری در میان دانشجویان و پژوهشگران. ما به دنبال ایجاد فضایی برای یادگیری، تحقیق و نوآوری در حوزه‌های امنیت اطلاعات و هوش مصنوعی هستیم.</p>
+        </div>
+        <div class="about-card">
+          <h3>💡 چشم‌انداز</h3>
+          <p>تبدیل شدن به مرجع اصلی آموزش و پژوهش در زمینه امنیت سایبری و رمزنگاری در سطح کشور و ایجاد شبکه‌ای از متخصصان و علاقه‌مندان به این حوزه.</p>
+        </div>
+        <div class="about-card">
+          <h3>🚀 فعالیت‌ها</h3>
+          <p>برگزاری کارگاه‌های آموزشی، مسابقات CTF، سمینارهای علمی، پروژه‌های تحقیقاتی و همکاری با صنعت در زمینه امنیت سایبری و رمزنگاری.</p>
+        </div>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">۱۵۰+</div>
+          <div class="stat-label">عضو فعال</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">۵۰+</div>
+          <div class="stat-label">رویداد برگزار شده</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">۲۰+</div>
+          <div class="stat-label">پروژه اجرا شده</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">۲+</div>
+          <div class="stat-label">سال تجربه</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section id="team" class="section" style="background: rgba(5, 5, 8, 0.5);">
+    <div class="container">
+      <h2 class="section-title">اعضای دور دوم شاخه دانشجویی انجمن رمز دانشگاه علم و صنعت</h2>
+      <p class="section-subtitle">با اعضای شورای مرکزی دور دوم انجمن آشنا شوید</p>
+      
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-avatar">
+            <img src="https://via.placeholder.com/200x200/1a1a2e/00ff88?text=رئیس" alt="رئیس انجمن">
+          </div>
+          <h3>دکتر زهرا سعیدی</h3>
+          <div class="team-role">رئیس انجمن</div>
+          <p class="team-bio">رئیس شاخه دانشجویی انجمن رمز دانشگاه علم و صنعت</p>
+          <div class="social-icons">
+            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="لینکدین"><i class="fa fa-linkedin"></i></a>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <div class="team-avatar">
+            <img src="https://via.placeholder.com/200x200/1a1a2e/00d4ff?text=دبیر" alt="دبیر انجمن">
+          </div>
+          <h3>امیرحسین قدیمی</h3>
+          <div class="team-role">دبیر انجمن</div>
+          <p class="team-bio">دبیر شاخه دانشجویی انجمن رمز دانشگاه علم و صنعت</p>
+          <div class="social-icons">
+            <a href="https://www.linkedin.com/in/amirhosseinghadimi" target="_blank" rel="noopener noreferrer" aria-label="لینکدین"><i class="fa fa-linkedin"></i></a>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <div class="team-avatar">
+            <img src="https://via.placeholder.com/200x200/1a1a2e/00ff88?text=عضو" alt="عضو شورای مرکزی">
+          </div>
+          <h3>محدثه نبیئی</h3>
+          <div class="team-role">عضو شورای مرکزی انجمن</div>
+          <p class="team-bio">عضو شورای مرکزی شاخه دانشجویی انجمن رمز دانشگاه علم و صنعت</p>
+          <div class="social-icons">
+            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="لینکدین"><i class="fa fa-linkedin"></i></a>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <div class="team-avatar">
+            <img src="https://via.placeholder.com/200x200/1a1a2e/00d4ff?text=عضو" alt="عضو شورای مرکزی">
+          </div>
+          <h3>مهدی کیانی</h3>
+          <div class="team-role">عضو شورای مرکزی انجمن</div>
+          <p class="team-bio">عضو شورای مرکزی شاخه دانشجویی انجمن رمز دانشگاه علم و صنعت</p>
+          <div class="social-icons">
+            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="لینکدین"><i class="fa fa-linkedin"></i></a>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <div class="team-avatar">
+            <img src="https://via.placeholder.com/200x200/1a1a2e/00ff88?text=عضو" alt="عضو شورای مرکزی">
+          </div>
+          <h3>محمد سلامی</h3>
+          <div class="team-role">عضو شورای مرکزی انجمن</div>
+          <p class="team-bio">عضو شورای مرکزی شاخه دانشجویی انجمن رمز دانشگاه علم و صنعت</p>
+          <div class="social-icons">
+            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="لینکدین"><i class="fa fa-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Button to Previous Members Page -->
+      <div style="text-align: center; margin-top: 3rem; display:flex; flex-direction:column; gap:1rem; align-items:center;">
+        <a href="{% url 'previous_members' %}" class="btn btn-secondary">اعضای دوره‌های قبلی انجمن رمز</a>
+        <a href="{% url 'honorary_members' %}" class="btn btn-secondary">اعضای افتخاری</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Events Section -->
+  <section id="events" class="section">
+    <div class="container">
+      <h2 class="section-title">رویدادها و اخبار</h2>
+      <p class="section-subtitle">رویدادهای پیش‌رو و اخبار انجمن</p>
+      
+      <div class="events-grid">
+        <div class="event-card">
+          <div class="event-date">📅 15 اردیبهشت 1403</div>
+          <h3>کارگاه رمزنگاری مدرن</h3>
+          <p>آشنایی با الگوریتم‌های رمزنگاری متقارن و نامتقارن، پیاده‌سازی عملی و کاربردهای واقعی در امنیت اطلاعات. این کارگاه برای دانشجویان و علاقه‌مندان به رمزنگاری طراحی شده است.</p>
+          <a href="#eventForm" class="btn btn-primary">ثبت‌نام</a>
+        </div>
+
+        <div class="event-card">
+          <div class="event-date">📅 22 اردیبهشت 1403</div>
+          <h3>مسابقه CTF بهاره</h3>
+          <p>مسابقه Capture The Flag با چالش‌های متنوع در زمینه‌های Web Security، Cryptography، Reverse Engineering و Forensics. جوایز نقدی و گواهینامه برای برندگان.</p>
+          <a href="#eventForm" class="btn btn-primary">ثبت‌نام</a>
+        </div>
+
+        <div class="event-card">
+          <div class="event-date">📅 5 خرداد 1403</div>
+          <h3>سمینار هوش مصنوعی در امنیت</h3>
+          <p>بررسی کاربردهای یادگیری ماشین و یادگیری عمیق در تشخیص تهدیدات سایبری و پیشگیری از حملات. با حضور اساتید برجسته و متخصصان صنعت.</p>
+          <a href="#eventForm" class="btn btn-primary">ثبت‌نام</a>
+        </div>
+      </div>
+
+      <!-- Event Registration Form -->
+      <div class="form-container" id="eventForm">
+        <h3 style="color: var(--primary-green); margin-bottom: 2rem; text-align: center; font-size: 1.5rem;">فرم ثبت‌نام رویداد</h3>
+        <form method="post">
+          {% csrf_token %}
+          {{ event_form.as_p }}
+          <button type="submit" class="btn btn-primary" name="event_submit" style="width: 100%;">ثبت‌نام</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="section" style="background: rgba(5, 5, 8, 0.5);">
+    <div class="container">
+      <h2 class="section-title">پروژه‌های ما</h2>
+      <p class="section-subtitle">نمونه‌ای از پروژه‌های تحقیقاتی و عملی انجمن</p>
+      
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-image">🛡️</div>
+          <div class="project-info">
+            <h3>سیستم تشخیص نفوذ هوشمند</h3>
+            <p>طراحی و پیاده‌سازی یک سیستم تشخیص نفوذ مبتنی بر هوش مصنوعی برای شناسایی حملات سایبری در زمان واقعی با دقت بالا.</p>
+            <div class="project-tags">
+              <span class="tag">امنیت</span>
+              <span class="tag">هوش مصنوعی</span>
+              <span class="tag">شبکه</span>
+            </div>
+            <a href="#" class="project-link">مشاهده جزئیات →</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">🔐</div>
+          <div class="project-info">
+            <h3>الگوریتم رمزنگاری کوانتومی</h3>
+            <p>تحقیق و توسعه الگوریتم‌های رمزنگاری مقاوم در برابر کامپیوترهای کوانتومی با استفاده از روش‌های پیشرفته ریاضی.</p>
+            <div class="project-tags">
+              <span class="tag">رمزنگاری</span>
+              <span class="tag">کوانتوم</span>
+              <span class="tag">امنیت</span>
+            </div>
+            <a href="#" class="project-link">مشاهده جزئیات →</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">🤖</div>
+          <div class="project-info">
+            <h3>تشخیص چهره با یادگیری عمیق</h3>
+            <p>پیاده‌سازی یک سیستم تشخیص چهره با دقت بالا با استفاده از شبکه‌های عصبی کانولوشنی و الگوریتم‌های پیشرفته پردازش تصویر.</p>
+            <div class="project-tags">
+              <span class="tag">یادگیری ماشین</span>
+              <span class="tag">بینایی کامپیوتر</span>
+              <span class="tag">هوش مصنوعی</span>
+            </div>
+            <a href="#" class="project-link">مشاهده جزئیات →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="gallery" class="section">
+    <div class="container">
+      <h2 class="section-title">گالری تصاویر</h2>
+      <p class="section-subtitle">گالری تصاویر رویدادها و فعالیت‌های انجمن</p>
+      
+      <div class="gallery-container">
+        <div class="gallery-slider">
+          <button class="gallery-nav prev" type="button" aria-label="تصویر قبلی">‹</button>
+          <div class="gallery-track" id="galleryTrack">
+            {% if gallery_images %}
+              {% for gallery_image in gallery_images %}
+                <div class="gallery-item">
+                  <img src="{{ gallery_image.image.url }}" alt="{{ gallery_image.caption|default:gallery_image.title }}">
+                  {% if gallery_image.caption %}
+                    <p class="gallery-caption">{{ gallery_image.caption }}</p>
+                  {% endif %}
+                </div>
+              {% endfor %}
+            {% else %}
+              <div class="gallery-item">🎓</div>
+              <div class="gallery-item">💻</div>
+              <div class="gallery-item">🏆</div>
+              <div class="gallery-item">🔬</div>
+              <div class="gallery-item">👥</div>
+              <div class="gallery-item">📚</div>
+            {% endif %}
+          </div>
+          <button class="gallery-nav next" type="button" aria-label="تصویر بعدی">›</button>
+        </div>
+        <div class="gallery-dots" id="galleryDots"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Membership Section -->
+  <section id="membership" class="section" style="background: rgba(5, 5, 8, 0.5);">
+    <div class="container">
+      <h2 class="section-title">عضویت در انجمن</h2>
+      <p class="section-subtitle">برای عضویت در انجمن رمز، فرم زیر را تکمیل کنید</p>
+      
+      <div class="form-container">
+        <h3 style="color: var(--primary-green); margin-bottom: 2rem; text-align: center; font-size: 1.5rem;">فرم عضویت</h3>
+        <form method="post">
+          {% csrf_token %}
+          {{ membership_form.as_p }}
+          <button type="submit" class="btn btn-primary" name="member_submit" style="width: 100%;">ثبت درخواست عضویت</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact & Map Section -->
+  <section id="contact" class="section">
+    <div class="container">
+      <h2 class="section-title">تماس با ما</h2>
+      <p class="section-subtitle">برای ارتباط با انجمن رمز از راه‌های زیر می‌توانید با ما در تماس باشید</p>
+      
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 3rem;">
+        <!-- Contact Info -->
+        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+          <div style="background: rgba(26, 26, 46, 0.6); border: 1px solid rgba(0, 255, 136, 0.2); border-radius: 16px; padding: 2rem;">
+            <h3 style="color: var(--primary-green); font-size: 1.5rem; margin-bottom: 1.5rem;">
+              <i class="fa fa-info-circle"></i> اطلاعات تماس
+            </h3>
+            <div style="display: flex; flex-direction: column; gap: 1rem; color: var(--text-secondary);">
+              <div style="display: flex; align-items: center; gap: 1rem;">
+                <i class="fa fa-envelope" style="color: var(--primary-green); font-size: 1.2rem; min-width: 20px;"></i>
+                <span>crypto@iust.ac.ir</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 1rem;">
+                <i class="fa fa-phone" style="color: var(--primary-green); font-size: 1.2rem; min-width: 20px;"></i>
+                <span>021-77240000</span>
+              </div>
+              <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                <i class="fa fa-map-marker" style="color: var(--primary-green); font-size: 1.2rem; min-width: 20px; margin-top: 0.2rem;"></i>
+                <span>تهران، خیابان هنگام، دانشگاه علم و صنعت ایران</span>
+              </div>
+            </div>
+          </div>
+          
+          <div style="background: rgba(26, 26, 46, 0.6); border: 1px solid rgba(0, 255, 136, 0.2); border-radius: 16px; padding: 2rem;">
+            <h3 style="color: var(--primary-green); font-size: 1.5rem; margin-bottom: 1rem;">
+              <i class="fa fa-share-alt"></i> شبکه‌های اجتماعی
+            </h3>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+              <a href="https://t.me/Isc_iust" target="_blank" rel="noopener noreferrer" style="width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; background: linear-gradient(135deg, #0088cc 0%, #00a0e9 100%); border: 1px solid #0088cc; transition: all 0.3s ease;" aria-label="تلگرام">
+                <i class="fa fa-telegram"></i>
+              </a>
+              <a href="https://www.linkedin.com/company/isc-crypto-iust/" target="_blank" rel="noopener noreferrer" style="width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; background: linear-gradient(135deg, #0077b5 0%, #00a0dc 100%); border: 1px solid #0077b5; transition: all 0.3s ease;" aria-label="لینکدین">
+                <i class="fa fa-linkedin"></i>
+              </a>
+              <a href="https://www.aparat.com/cryptology" target="_blank" rel="noopener noreferrer" style="width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%); border: 1px solid #e74c3c; transition: all 0.3s ease;" aria-label="آپارات">
+                <i class="fa fa-play-circle"></i>
+              </a>
+            </div>
+          </div>
+          
+          <a href="{% url 'contact' %}" class="btn btn-primary" style="width: 100%; text-align: center; padding: 1.2rem; font-size: 1.1rem;">
+            <i class="fa fa-paper-plane"></i> ارسال پیام به انجمن
+          </a>
+        </div>
+        
+        <!-- Map -->
+        <div style="background: rgba(26, 26, 46, 0.6); border: 1px solid rgba(0, 255, 136, 0.2); border-radius: 16px; padding: 2rem; display: flex; flex-direction: column;">
+          <h3 style="color: var(--primary-green); font-size: 1.5rem; margin-bottom: 1rem;">
+            <i class="fa fa-map"></i> موقعیت مکانی
+          </h3>
+          <div style="border-radius: 12px; overflow: hidden; border: 1px solid rgba(0, 255, 136, 0.2); flex: 1; min-height: 400px;">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3238.9876543210987!2d51.49999999999999!3d35.742513!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzXCsDQ0JzMzLjAiTiA1McKwMzAnMDguMSJF!5e0!3m2!1sfa!2sir!4v1732204800000!5m2!1sfa!2sir"
+              style="width: 100%; height: 100%; border: none;"
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+          <a href="https://maps.app.goo.gl/qsDyiZCgx9TnGdwH8" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="width: 100%; margin-top: 1rem; text-align: center;">
+            <i class="fa fa-map-marker"></i> مشاهده در Google Maps
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>تماس با ما</h3>
+          <p>📧 crypto@iust.ac.ir</p>
+          <p>📞 021-77240000</p>
+          <p>📍 تهران، خیابان هنگام، دانشگاه علم و صنعت ایران</p>
+        </div>
+        <div class="footer-section">
+          <h3>لینک‌های مفید</h3>
+          <a href="#about">درباره ما</a>
+          <a href="#events">رویدادها</a>
+          <a href="#projects">پروژه‌ها</a>
+          <a href="#membership">عضویت</a>
+        </div>
+        <div class="footer-section">
+          <h3>شبکه‌های اجتماعی</h3>
+          <a href="https://t.me/Isc_iust" target="_blank" rel="noopener noreferrer">تلگرام</a>
+          <a href="https://www.linkedin.com/company/isc-crypto-iust/" target="_blank" rel="noopener noreferrer">لینکدین</a>
+          <a href="https://www.aparat.com/cryptology" target="_blank" rel="noopener noreferrer">آپارات</a>
+          <a href="#" target="_blank" rel="noopener noreferrer">اینستاگرام</a>
+        </div>
+        <div class="footer-section">
+          <h3>منابع</h3>
+          <a href="#" target="_blank" rel="noopener noreferrer">مقالات علمی</a>
+          <a href="#" target="_blank" rel="noopener noreferrer">ابزارهای رمزنگاری</a>
+          <a href="#" target="_blank" rel="noopener noreferrer">دوره‌های آموزشی</a>
+          <a href="#" target="_blank" rel="noopener noreferrer">استانداردها</a>
+        </div>
+      </div>
+      <div class="university-badge">
+        <a href="https://www.iust.ac.ir/" target="_blank" rel="noopener noreferrer">
+          دانشگاه علم و صنعت ایران
+        </a>
+      </div>
+      <div class="footer-bottom">
+        <p>© 1403 انجمن رمز دانشگاه علم و صنعت. تمامی حقوق محفوظ است.</p>
+        <p style="margin-top: 10px;">سیاست حفظ حریم خصوصی | شرایط استفاده</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="{% static 'core/js/main.js' %}"></script>
+</body>
+</html>
