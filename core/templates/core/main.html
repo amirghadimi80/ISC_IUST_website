@@ -136,7 +136,7 @@
       <div class="team-grid">
         <div class="team-card">
           <div class="team-avatar">
-            <img src="https://via.placeholder.com/200x200/1a1a2e/00ff88?text=رئیس" alt="رئیس انجمن">
+            <img src="{% static 'core/images/saeedi.png' %}" alt="دکتر زهرا سعیدی - رئیس انجمن">
           </div>
           <h3>دکتر زهرا سعیدی</h3>
           <div class="team-role">رئیس انجمن</div>
@@ -148,7 +148,7 @@
 
         <div class="team-card">
           <div class="team-avatar">
-            <img src="https://via.placeholder.com/200x200/1a1a2e/00d4ff?text=دبیر" alt="دبیر انجمن">
+            <img src="{% static 'core/images/ghadimi.png' %}" alt="امیرحسین قدیمی - دبیر انجمن">
           </div>
           <h3>امیرحسین قدیمی</h3>
           <div class="team-role">دبیر انجمن</div>
@@ -160,7 +160,7 @@
 
         <div class="team-card">
           <div class="team-avatar">
-            <img src="https://via.placeholder.com/200x200/1a1a2e/00ff88?text=عضو" alt="عضو شورای مرکزی">
+            <img src="{% static 'core/images/nabeii.png' %}" alt="محدثه نبیئی - عضو شورای مرکزی">
           </div>
           <h3>محدثه نبیئی</h3>
           <div class="team-role">عضو شورای مرکزی انجمن</div>
@@ -172,7 +172,7 @@
 
         <div class="team-card">
           <div class="team-avatar">
-            <img src="https://via.placeholder.com/200x200/1a1a2e/00d4ff?text=عضو" alt="عضو شورای مرکزی">
+            <img src="{% static 'core/images/kiani.png' %}" alt="مهدی کیانی - عضو شورای مرکزی">
           </div>
           <h3>مهدی کیانی</h3>
           <div class="team-role">عضو شورای مرکزی انجمن</div>
@@ -184,7 +184,7 @@
 
         <div class="team-card">
           <div class="team-avatar">
-            <img src="https://via.placeholder.com/200x200/1a1a2e/00ff88?text=عضو" alt="عضو شورای مرکزی">
+            <img src="{% static 'core/images/salami.png' %}" alt="محمد سلامی - عضو شورای مرکزی">
           </div>
           <h3>محمد سلامی</h3>
           <div class="team-role">عضو شورای مرکزی انجمن</div>
@@ -461,10 +461,45 @@
       <div class="footer-bottom">
         <p>© 1403 انجمن رمز دانشگاه علم و صنعت. تمامی حقوق محفوظ است.</p>
         <p style="margin-top: 10px;">سیاست حفظ حریم خصوصی | شرایط استفاده</p>
+        <p style="margin-top: 15px; font-size: 0.85rem; opacity: 0.7;">
+          طراح و توسعه‌دهنده: <a href="https://www.linkedin.com/in/amirhosseinghadimi" target="_blank" rel="noopener noreferrer" style="color: var(--primary-green); text-decoration: none;">امیرحسین قدیمی</a>
+        </p>
       </div>
     </div>
   </footer>
 
+  <!-- Chatbot -->
+  <div class="chatbot-container">
+    <button class="chatbot-button" id="chatbotButton" aria-label="چت‌بات">
+      💬
+    </button>
+    
+    <div class="chatbot-window" id="chatbotWindow">
+      <div class="chatbot-header">
+        <h3>🤖 دستیار انجمن رمز</h3>
+        <button class="chatbot-close" id="chatbotClose" aria-label="بستن">×</button>
+      </div>
+      
+      <div class="chatbot-messages" id="chatbotMessages">
+        <!-- Messages will be added here dynamically -->
+      </div>
+      
+      <div class="chatbot-input-container">
+        <input 
+          type="text" 
+          class="chatbot-input" 
+          id="chatbotInput" 
+          placeholder="سوال خود را بپرسید..."
+          autocomplete="off"
+        >
+        <button class="chatbot-send" id="chatbotSend" aria-label="ارسال">
+          ➤
+        </button>
+      </div>
+    </div>
+  </div>
+
   <script src="{% static 'core/js/main.js' %}"></script>
+  <script src="{% static 'core/js/chatbot.js' %}"></script>
 </body>
 </html>
